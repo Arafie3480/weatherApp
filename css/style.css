@@ -1,6 +1,6 @@
 :root{
     --color-box-bg : #dbf7fb;
-    --color-text : #90E9F6;
+    --color-text : #20cbdb;
     --color-main-bg :#8FEBFB;
     --color-sun : #F9DD2D;
     --color-white : white;
@@ -9,7 +9,102 @@
     box-sizing: border-box;
 }
 body {
+    
     padding: 0;
     margin: 0;
     background-color: var(--color-main-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    gap: 20px;
+}
+h1 {
+    color: white;
+}
+.main-container {
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+.current-box {
+    width: 50%;
+    padding: 40px;
+    background-color: rgba(219 , 247 , 251 , 0.7);
+    
+    
+}
+.search-box {
+
+    width: 30vw;
+    display: flex;
+    gap: 0;
+    border-radius: 10px;
+    
+}
+input {
+    width: 80%;
+    background-color: white;
+   
+    padding: 15px;
+    border: 1px solid var(--color-white);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    outline: none;
+}
+button {
+    cursor: pointer;
+    width: 20%;
+    background-color: var(--color-sun);
+    color: white;
+    font-size: large;
+    border: 1px solid var(--color-sun);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.title {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+#title-day {
+    color: var(--color-text);
+    font-size: 2em;
+}
+.today-icon-box {
+    background-color: var(--color-text);
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#current-temp {
+    width: 100%;
+    padding: 25px 0;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-text);
+    font-size: 25px;
+}
+#today-icon {
+    width: 90%;
+}
+.current-box-detail {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-white);
+    color: var(--color-text);
+}
+#current-date {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text);
 }

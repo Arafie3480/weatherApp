@@ -7,7 +7,54 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <h1>
+        Weather Forcast
+    </h1>
+    <div class="main-container">
+        <div class="current-box">
+            <div class="title">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <h2 id="title-day">
+
+                    </h2>
+                    <div id="current-temp">
+
+                    </div>
+                </div>
+                <div class="today-icon-box">
+                    <img id="today-icon" src="#" alt="weather icon">
+                </div>
+            </div>
+            <div class="current-box-detail" >
+                <span id="current-date"></span>
+                <span id="main-weather"></span>
+            </div>
+            <div class="current-box-detail" >
+                <span>Real Feel</span>
+                <span id="current-real-feel"></span>
+            </div>
+            <div class="current-box-detail" >
+                <span>Time</span>
+                <span id="current-time"></span>
+            </div>
+            <div class="current-box-detail" >
+                <span>Humidity</span>
+                <span id="current-humidity"></span>
+            </div>
+            <div class="current-box-detail" >
+                <span>Wind Speed</span>
+                <span id="current-wind-speed"></span>
+            </div>
+        </div>
+        <div class="current-box">
+
+        </div>
+    </div>
+    <div class="search-box">
+        <input id="city-name" type="text" placeholder="Enter The City Name">
+        <button id="search">Search</button>
+    </div>
+        
     <script src="js/script.js"></script>
 </body>
 </html>
