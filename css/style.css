@@ -108,3 +108,44 @@ button {
     font-weight: 600;
     color: var(--color-text);
 }
+.future-container {
+    width: 50%;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+.future-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(219 , 247 , 251 , 0.7);
+    padding: 5px;
+}
+.future-box-day {
+    width: 50%;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text);
+    padding-left: 30px;
+}
+.future-box-detail {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    gap : 10px;
+    padding: 5px;
+}
+.future-box-avtemp {
+    width:25%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: var(--color-white);
+    color: var(--color-text);
+}
+.future-box-icon {
+    width:25%;
+    background-color: var(--color-white);
+}

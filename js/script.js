@@ -3,6 +3,10 @@ const API_KEY = "2a465e7e2b04fb45150cc9ea72aa72dc";
 const CURRENT_WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
 let currentData = {};
 
+const API_KEY2 = "a151042e302b4279a36132643252606";
+const DAILY_WEATHER_URL = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY2}&q=${city}&days=7&aqi=no&alerts=no`;
+let dailyData = [];
+
 const cityAsked = document.getElementById('city-name');
 const searchBtn = document.getElementById('search');
 const currentDate = document.getElementById('current-date');
@@ -28,7 +32,7 @@ const currentWeatherFormat = async () =>{
     const currentDayName = days[dayOfWeek];
     const url = await fetch(CURRENT_WEATHER_URL);
     currentData = await url.json();
-    console.log(currentData)
+    //console.log(currentData)
     let newFormat = {
         cityName : currentData.name ,
         main : currentData.weather[0].description,
@@ -54,14 +58,49 @@ const currentWeatherFormat = async () =>{
     currentHumidity.innerText = newFormat.humidity + '%';
     currentWindSpeed.innerText = newFormat.windSpeed + 'm/s';
     console.log(newFormat);
-    console.log('Humidity value:', newFormat.humidity);
-    console.log('Humidity element:', document.getElementById('current-humidity'));
-    console.log('Wind speed value:', newFormat.windSpeed);
-    console.log('Wind speed element:', document.getElementById('current-wind-speed'));
 
     return newFormat;
     
     
 }
+
+const dailyWeatherFormat = async () => {
+    
+    const DAILY_WEATHER_URL = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY2}&q=${city}&days=7&aqi=no&alerts=no`;
+    const url = await fetch(DAILY_WEATHER_URL);
+    const data = await url.json();
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    data.forecast.forecastday.forEach((d)=>{
+        const date =new Date(d.date)
+        newFormat = {
+            weekDay : days[date.getDay()],
+            avTemp : d.day.avgtemp_c,
+            imgSrc : `https:${d.day.condition.icon}`
+        } 
+        dailyData.push(newFormat)
+    })
+    document.querySelector('.future-container').innerHTML=''
+    for (let i = 1; i < dailyData.length; i++) {
+        document.querySelector('.future-container').innerHTML += `
+            <div class="future-box">
+                <p class="future-box-day">
+                    ${dailyData[i].weekDay}
+                </p>
+                <div class ='future-box-detail'>
+                    <div class='future-box-avtemp'>
+                        ${dailyData[i].avTemp}
+                    </div>
+                    <img src ='${dailyData[i].imgSrc}' class = 'future-box-icon'>
+                </div>
+            </div>`
+        
+    }
+    dailyData = []
+    
+    console.log( dailyData)
+}
+
 const currentWeather = currentWeatherFormat() ;
+const dailyWeather = dailyWeatherFormat();
 searchBtn.addEventListener("click" , currentWeatherFormat)
+searchBtn.addEventListener("click" , dailyWeatherFormat)
